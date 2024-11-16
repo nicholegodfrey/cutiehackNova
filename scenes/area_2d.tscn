@@ -1,3 +1,90 @@
-[gd_scene format=3 uid="uid://dp535cuac4w7b"]
+[gd_scene load_steps=11 format=3 uid="uid://dp535cuac4w7b"]
 
-[node name="Area2D" type="Area2D"]
+[ext_resource type="Texture2D" uid="uid://bn3egpy54ql5j" path="res://Frame 1 (5).png" id="1_b86j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c760"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qi2n"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqghe"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8h60"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hask0"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ile54"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_028cl"]
+atlas = ExtResource("1_b86j8")
+region = Rect2(960, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wphpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c760")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qi2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqghe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8h60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hask0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ile54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_028cl")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s68vk"]
+radius = 2.23607
+
+[node name="star" type="Area2D"]
+position = Vector2(-170, -145)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 404)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_wphpr")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.0511049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(319, 404)
+shape = SubResource("CircleShape2D_s68vk")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(335, 404)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_wphpr")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.928883
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(334, 404)
+shape = SubResource("CircleShape2D_s68vk")
