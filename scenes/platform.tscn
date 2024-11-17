@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://4n7fr2wbkrte"]
+
+[ext_resource type="Texture2D" uid="uid://bo855r2ye1ps5" path="res://scenes/platforms (1).png" id="1_f5ngq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soasg"]
+size = Vector2(188, 66)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f5ngq")
+region_enabled = true
+region_rect = Rect2(952, 87, 336, 153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -15)
+shape = SubResource("RectangleShape2D_soasg")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D2"]
+texture = ExtResource("1_f5ngq")
+region_enabled = true
+region_rect = Rect2(952, 87, 336, 153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2"]
+position = Vector2(-3, -15)
+shape = SubResource("RectangleShape2D_soasg")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="AnimatableBody2D2"]
+
+[node name="AnimatableBody2D3" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D3"]
+texture = ExtResource("1_f5ngq")
+region_enabled = true
+region_rect = Rect2(952, 87, 336, 153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D3"]
+position = Vector2(-3, -15)
+shape = SubResource("RectangleShape2D_soasg")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="AnimatableBody2D3"]
