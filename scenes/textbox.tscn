@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dndcdh022n6at"]
+
+[ext_resource type="Script" path="res://textbox.gd" id="1_kc2it"]
+[ext_resource type="FontFile" uid="uid://whrsxi2pjoyl" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_7tami"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oqsh"]
+bg_color = Color(0.0918, 0.224173, 0.34, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_kc2it")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+offset_right = 718.0
+offset_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6oqsh")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " "
+horizontal_alignment = 3
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7tami")
+theme_override_font_sizes/font_size = 32
+text = "Welcome to Mars!
+Did you know?
+Mars has two moons: Phobos and Deimos"
+
+[node name="end" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " "
+horizontal_alignment = 3
