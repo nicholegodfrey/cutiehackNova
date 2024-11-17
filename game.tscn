@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3dhrxq3umu60"]
+
+[ext_resource type="PackedScene" path="res://scenes/longerplatform.tscn" id="1_5bcrb"]
+[ext_resource type="PackedScene" uid="uid://cjpqdk5qot5c1" path="res://scenes/alien.tscn" id="2_0br86"]
+[ext_resource type="PackedScene" uid="uid://dav26x0mchv81" path="res://assets/player.tscn" id="3_1u3wc"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="4_ekjau"]
+
+[sub_resource type="TileSet" id="TileSet_epgdm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1yuqu"]
+
+[node name="game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("3_1u3wc")]
+position = Vector2(159, -38)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-2, 0)
+tile_set = SubResource("TileSet_epgdm")
+format = 2
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("1_5bcrb")]
+position = Vector2(44, -70)
+scale = Vector2(0.1, 0.1)
+
+[node name="alien" parent="." instance=ExtResource("2_0br86")]
+position = Vector2(42, -101)
+
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("4_ekjau")]
+position = Vector2(237, -148)
+scale = Vector2(0.1, 0.1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_1yuqu")
