@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=3 uid="uid://68yos2qwrext"]
+
+[ext_resource type="PackedScene" uid="uid://t5ec60c0jy2m" path="res://assets/player.tscn" id="2_uhoej"]
+[ext_resource type="PackedScene" uid="uid://bb7e5wine0bdm" path="res://scenes/newbakground.tscn" id="2_wmils"]
+[ext_resource type="PackedScene" uid="uid://d04l6fad02j7t" path="res://scenes/longerplatform.tscn" id="3_fklu5"]
+[ext_resource type="PackedScene" uid="uid://4n7fr2wbkrte" path="res://scenes/platform.tscn" id="4_tual1"]
+[ext_resource type="PackedScene" uid="uid://gkhycwde7ngs" path="res://scenes/movingplatformfix.tscn" id="5_2378u"]
+[ext_resource type="PackedScene" uid="uid://dct5uynomudvc" path="res://scenes/alien.tscn" id="6_hlhd1"]
+[ext_resource type="PackedScene" uid="uid://b164clcroeso" path="res://scenes/line.tscn" id="7_5peph"]
+[ext_resource type="PackedScene" uid="uid://db16p4eogq5m5" path="res://scenes/starsfixonbody.tscn" id="8_p5h1x"]
+[ext_resource type="PackedScene" uid="uid://dp535cuac4w7b" path="res://scenes/area_2d.tscn" id="9_51oth"]
+[ext_resource type="PackedScene" uid="uid://cvdvgwi5buchu" path="res://scenes/finalstar.tscn" id="10_0hd0g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vp3n6"]
+distance = -9.0
+
+[sub_resource type="Animation" id="Animation_umsgl"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+step = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-287, -128), Vector2(71, -124)]
+}
+
+[sub_resource type="Animation" id="Animation_3skbp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-257, -367)]
+}
+
+[sub_resource type="Animation" id="Animation_nmivk"]
+resource_name = "new_animation_2"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-257, -367), Vector2(0.999939, -372)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ri5j"]
+_data = {
+"RESET": SubResource("Animation_3skbp"),
+"new_animation": SubResource("Animation_umsgl"),
+"new_animation_2": SubResource("Animation_nmivk")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(669, 333)
+
+[node name="player" parent="." instance=ExtResource("2_uhoej")]
+position = Vector2(-142, -19)
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+zoom = Vector2(10, 10)
+
+[node name="TileMap2" parent="." instance=ExtResource("2_wmils")]
+position = Vector2(-140, 25)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-141, 12)
+shape = SubResource("WorldBoundaryShape2D_vp3n6")
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("3_fklu5")]
+position = Vector2(-251, 43)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(-56, 32)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D3" parent="." instance=ExtResource("5_2378u")]
+position = Vector2(-257, -367)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="AnimatableBody2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_0ri5j")
+}
+autoplay = "new_animation_2"
+
+[node name="alien" parent="." instance=ExtResource("6_hlhd1")]
+position = Vector2(-128, -316)
+
+[node name="AnimatableBody2D4" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(-4, 32)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D8" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(49, 31)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D5" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(-374, 27)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D6" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(-309, -38)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D7" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(-322, 27)
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatableBody2D9" parent="." instance=ExtResource("4_tual1")]
+position = Vector2(152, 57)
+scale = Vector2(0.2, 0.2)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("7_5peph")]
+position = Vector2(-268, -277)
+
+[node name="Node2D" parent="." instance=ExtResource("8_p5h1x")]
+position = Vector2(402, -496)
+
+[node name="star" parent="." instance=ExtResource("9_51oth")]
+position = Vector2(-594, -697)
+
+[node name="alien2" parent="." instance=ExtResource("6_hlhd1")]
+position = Vector2(153, 7)
+
+[node name="star2" parent="." instance=ExtResource("10_0hd0g")]
+position = Vector2(-574, -918)
+
+[node name="star3" parent="." instance=ExtResource("10_0hd0g")]
+position = Vector2(-371, -919)

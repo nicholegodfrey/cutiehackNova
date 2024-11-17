@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvdvgwi5buchu"]
+
+[ext_resource type="PackedScene" uid="uid://0tsx7ia2yaf8" path="res://scenes/congratsstar.tscn" id="1_tgof2"]
+
+[node name="star" instance=ExtResource("1_tgof2")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+frame_progress = 0.258794
+
+[node name="AnimatedSprite2D2" parent="." index="2"]
+frame_progress = 0.932269

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjpqdk5qot5c1"]
+[gd_scene load_steps=18 format=3 uid="uid://dct5uynomudvc"]
 
 [ext_resource type="Texture2D" uid="uid://bspwrow8ej5lp" path="res://assets/Group 1 (1).png" id="1_2rf0n"]
 
@@ -108,7 +108,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"chomp",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,11 +132,12 @@ size = Vector2(16, 18)
 script = SubResource("GDScript_1ikqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_vmod4")
 animation = &"chomp"
-autoplay = "idle"
-frame_progress = 0.605778
+autoplay = "chomp"
+frame_progress = 0.955205
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)

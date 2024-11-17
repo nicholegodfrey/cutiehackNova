@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://db16p4eogq5m5"]
+
+[ext_resource type="PackedScene" uid="uid://dp535cuac4w7b" path="res://scenes/area_2d.tscn" id="1_dodxy"]
+[ext_resource type="Script" path="res://scenes/scripts/area_2d.gd" id="2_pxuv7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="star" parent="." instance=ExtResource("1_dodxy")]
+position = Vector2(606, 1352)
+script = ExtResource("2_pxuv7")
